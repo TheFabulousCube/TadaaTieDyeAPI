@@ -30,3 +30,4 @@ _ReSharper*/
 .vs/
 #Nuget packages folder
 packages/
+/internal_logs/internallog.txt
