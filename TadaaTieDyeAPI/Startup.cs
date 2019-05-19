@@ -34,6 +34,7 @@ namespace TadaaTieDyeAPI
             services.ConfigureCors();
             services.ConfigureIISIntegration();
             services.ConfigureMySqlContext(Configuration);
+            services.ConfigureRepositoryWrapper();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.ConfigureLoggerService();
         }

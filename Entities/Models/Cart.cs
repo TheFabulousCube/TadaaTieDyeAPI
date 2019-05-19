@@ -7,12 +7,11 @@ namespace Entities.Models
     public partial class Cart
     {
         [Key]
-        [Column(TypeName = "int(11)", Order = 1)]
+        [Column(TypeName = "int(11)")]
         [Required(ErrorMessage ="UserId is required")]
         public int UserId { get; set; }
 
-        [Key]
-        [Column("ProdID", TypeName = "varchar(4)", Order = 2)]
+        [Column("ProdID", TypeName = "varchar(4)")]
         public string ProdId { get; set; }
 
         [Column(TypeName = "int(11)")]

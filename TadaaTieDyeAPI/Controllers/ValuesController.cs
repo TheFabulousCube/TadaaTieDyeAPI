@@ -11,22 +11,29 @@ namespace TadaaTieDyeAPI.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        private ILoggerManager _logger;
+        private IRepositoryWrapper _repoWrapper;
 
-        public ValuesController(ILoggerManager logger)
+        public ValuesController(IRepositoryWrapper repoWrapper)
         {
-            _logger = logger;
+            _repoWrapper = repoWrapper;
         }
 
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            _logger.LogInfo("Here is info message from our values controller.");
-            _logger.LogDebug("Here is debug message from our values controller.");
-            _logger.LogWarn("Here is warn message from our values controller.");
-            _logger.LogError("Here is error message from our values controller.");
-            return new string[] { "value1", "value2" };
+            //_logger.LogInfo("Here is info message from our values controller.");
+            //_logger.LogDebug("Here is debug message from our values controller.");
+            //_logger.LogWarn("Here is warn message from our values controller.");
+            //_logger.LogError("Here is error message from our values controller.");
+            var magnets = _repoWrapper.Magnets.FindAll();
+            List<string> result = new List<string>();
+            foreach (var magnet in magnets)
+            {
+                result.Add($"State:{magnet.ProdName}, ID: {magnet.ProdId}, Qty:{magnet.ProdQty}");
+            }
+            return result;
+            //return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5
