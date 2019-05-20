@@ -31,3 +31,4 @@ _ReSharper*/
 #Nuget packages folder
 packages/
 /internal_logs/internallog.txt
+/logs/*_logfile.txt
